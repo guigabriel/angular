@@ -23,7 +23,7 @@ export class ApiService {
   }
 
   public postData(text: String): Observable<any> {
-    return this.http.post(${environment.apiHost}/dataAtual/${text}, text);
+    return this.http.post(`${environment.apiHost}/dataAtual/${text}`, text);
 
   }
 }
