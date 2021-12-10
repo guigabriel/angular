@@ -9,27 +9,27 @@
 <div class="bloco">
   <h1>Título da Página</h1>
   <div class="container">
-      <div class="sidebar">
+    <div class="sidebar">
       <h2>SIDEBAR</h2>
-      <a routerLink = "/start">Start</a>
-  </div>
-  <div class="api">
-    <div class="hello">
-      <h2 class="getHello"></h2>
+      <a routerLink="/start">Start</a>
     </div>
-    <div class="hora">
-      aaaa
-    </div>
-      <input id = "btn" type="text" [(ngModel)] = "inputGet">
-      <button class="button" type = "button" value="Enviar" (click)= "resposta()"></button>
-      <div id="txt">
-
+    <div class="api">
+      <div class="hello">
+        <h2 class="getHello">{{hello}}</h2>
       </div>
-  </div>
+      <div class="hora">
+        {{dataAtual}}
+      </div>
+      <input id="btn" type="text" [(ngModel)]="inputGet">
+      <button class="button" type="button" value="Enviar" (click)="resposta()">Enviar</button>
+      <div id="txt">
+        {{inputGet}}
+      </div>
+    </div>
 
   </div>
 
 </div>
 
 
-{{ apiGreeting }}
+

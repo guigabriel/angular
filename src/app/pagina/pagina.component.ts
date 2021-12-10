@@ -11,30 +11,49 @@ import { ApiService } from '../services/api.service';
 })
 export class PaginaComponent implements OnInit {
 
-  public apiGreeting = '';
+  public hello = '';
   public inputGet = '';
+  public dataAtual = '';
 
   constructor(
     private apiService: ApiService
   ) { }
 
+
   ngOnInit(): void {
-    this.apiService.getHello().pipe(
+    this.getDataAtual();
+    this.getHello();
+  }
+
+  getDataAtual() {
+    this.apiService.getData().pipe(
       catchError((err) => {
-        this.apiGreeting = 'Falha na comunicação com o servidor.';
+        this.dataAtual = 'Falha na comunicação com o servidor.';
         return [];
       })
     ).subscribe((response) => {
       if (response) {
-        this.apiGreeting = response.mensagem;
+        this.dataAtual = response;
       }
     });
   }
-  
-  resposta(){
+
+  getHello() {
+    this.apiService.getHello().pipe(
+      catchError((err) => {
+        this.hello = 'Falha na comunicação com o servidor.';
+        return [];
+      })
+    ).subscribe((response) => {
+      if (response) {
+        this.hello = response.mensagem;
+      }
+    });
+  }
+
+  resposta() {
+    this.apiService.postData(this.inputGet)
     console.log(this.inputGet)
   }
-    
-  
 
 }

@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 })
 export class ApiService {
 
-  apiUrl = 'http://127.0.0.1:8000/api/teste'
+  apiUrl = 'http://127.0.0.1:8000/api/'
 
   constructor(
     private http: HttpClient
@@ -18,7 +18,12 @@ export class ApiService {
     return this.http.get(environment.apiHost + '/hello');
   }
 
-   public getData(): Observable<any> {
+  public getData(): Observable<any> {
     return this.http.get(environment.apiHost + '/dataAtual');
+  }
 
+  public postData(text: String): Observable<any> {
+    return this.http.post(${environment.apiHost}/dataAtual/${text}, text);
+
+  }
 }
